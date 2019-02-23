@@ -14,12 +14,12 @@ START := $(shell date +%s)
 ELAPSED = $$(expr $$(date +%s) - $(START))
 OK = /.success
 
-.PHONY: clean retry all artifacts meshroom
+all: clean artifacts
 clean:
 	rm -rf $(CACHE_DIR)
 retry: $(CACHE_DIR)
 	find $(CACHE_DIR) -type d -maxdepth 1 -regex ".*/[0-9][0-9]" -exec test -e "{}$(OK)" ';' -prune -exec rm -rf {} \;
-all: clean artifacts
+.PHONY: clean retry all artifacts meshroom
 
 artifacts: retry $(ARTIFACTS)/filtered.obj $(ARTIFACTS)/smoothed.obj
 $(ARTIFACTS)/mesh.obj: $(CACHE_DIR)/09$(OK)
