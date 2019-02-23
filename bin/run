@@ -1,0 +1,7 @@
+#!/bin/bash
+
+docker run -it --rm \
+    --runtime=nvidia \
+    -v $(pwd)/workspace:/home/paperspace \
+    -v $(pwd)/artifacts:/artifacts \
+    fschwaiger/alicevision:2018.1.0-cuda10 $*

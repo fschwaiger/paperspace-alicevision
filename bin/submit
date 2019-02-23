@@ -1,0 +1,13 @@
+#!/bin/bash
+
+download=$1
+target=$2
+shift
+shift
+
+cd workspace
+paperspace jobs create \
+    --container fschwaiger/alicevision:2018.1.0-cuda10 \
+    --command "IMAGE_ZIP=$download make $target" \
+    --machineType P4000 \
+    $*
