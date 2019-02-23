@@ -25,11 +25,11 @@ Usage
 
 | Field            | Value                                                     |
 |------------------|-----------------------------------------------------------|
-| (1) Machine Type | P4000                    |
+| (1) Machine Type | P4000                                                     |
 | (2) Base Image   | [fschwaiger/alicevision:2018.1.0-cuda10](https://hub.docker.com/r/fschwaiger/alicevision)                    |
 | (3) Workspace    | https://github.com/fschwaiger/paperspace-alicevision.git  |
 | (4) Command      | cd workspace && IMAGE_ZIP=YOUR-ONLINE-IMAGES-ZIP make all |
-| (5) Ports        | *leave empty*                                               |
+| (5) Ports        | *leave empty*                                             |
 
 ### Option 2: Upload a workspace from the Paperspace node CLI
 
@@ -42,6 +42,18 @@ You can for example call:
 ``` bash
 bin/submit YOUR-ONLINE-IMAGES-ZIP all
 ```
+
+### Option 3: Fork this repo, add your images to the workspace and run
+
+Example: add your images to `workspace/images/*.jpg`
+
+| Field            | Value                                                          |
+|------------------|----------------------------------------------------------------|
+| (1) Machine Type | P4000                                                          |
+| (2) Base Image   | [fschwaiger/alicevision:2018.1.0-cuda10](https://hub.docker.com/r/fschwaiger/alicevision)                    |
+| (3) Workspace    | https://github.com/your-name/your-fork-of-this-with-images.git |
+| (4) Command      | cd workspace && IMAGE_DIR=/workspace/images make all           |
+| (5) Ports        | *leave empty*                                                  |
 
 
 Lessons learned
